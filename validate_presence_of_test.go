@@ -21,7 +21,7 @@ func TestValidatePresenceOf(t *testing.T) {
 		expected = "can't be blank"
 
 		if subject != expected {
-			t.Errorf(MESSAGE, subject, expected)
+			t.Errorf(M, subject, expected)
 		}
 	})
 
@@ -39,7 +39,7 @@ func TestValidatePresenceOf(t *testing.T) {
 		expected = true
 
 		if subject != expected {
-			t.Errorf(MESSAGE, subject, expected)
+			t.Errorf(M, subject, expected)
 		}
 	})
 }
