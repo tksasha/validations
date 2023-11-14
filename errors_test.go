@@ -14,7 +14,7 @@ func TestAdd(t *testing.T) {
 	expected := "can't be blank"
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 }
 
@@ -28,7 +28,7 @@ func TestGet(t *testing.T) {
 	expected := "can't be blank"
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 }
 
@@ -42,7 +42,7 @@ func TestEmpty(t *testing.T) {
 	expected = true
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 
 	errs.Add("name", "can't be blank")
@@ -52,7 +52,7 @@ func TestEmpty(t *testing.T) {
 	expected = false
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 }
 
@@ -66,7 +66,7 @@ func TestPresent(t *testing.T) {
 	expected = false
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 
 	errs.Add("name", "can't be blank")
@@ -76,6 +76,6 @@ func TestPresent(t *testing.T) {
 	expected = true
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 }

@@ -10,6 +10,6 @@ func TestCantBeBlankMessage(t *testing.T) {
 	expected := "can't be blank"
 
 	if subject != expected {
-		t.Errorf(message, subject, expected)
+		t.Errorf(MESSAGE, subject, expected)
 	}
 }
