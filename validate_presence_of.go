@@ -9,7 +9,7 @@ func ValidatePresenceOf(errs Errors, params ...string) error {
 
 	var attribute, value, message string
 
-	message = "can't be blank"
+	message = BLANK
 
 	if len(params) > 0 {
 		attribute = params[0]

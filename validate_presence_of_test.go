@@ -34,7 +34,7 @@ func TestValidatePresenceOf(t *testing.T) {
 
 		ValidatePresenceOf(errs, "name", name)
 
-		subject = errs.Empty()
+		subject = errs.IsEmpty()
 
 		expected = true
 

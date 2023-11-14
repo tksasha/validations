@@ -32,12 +32,12 @@ func TestGet(t *testing.T) {
 	}
 }
 
-func TestEmpty(t *testing.T) {
+func TestIsEmpty(t *testing.T) {
 	errs := NewErrors()
 
 	var subject, expected bool
 
-	subject = errs.Empty()
+	subject = errs.IsEmpty()
 
 	expected = true
 
@@ -47,7 +47,7 @@ func TestEmpty(t *testing.T) {
 
 	errs.Add("name", "can't be blank")
 
-	subject = errs.Empty()
+	subject = errs.IsEmpty()
 
 	expected = false
 
@@ -56,12 +56,12 @@ func TestEmpty(t *testing.T) {
 	}
 }
 
-func TestPresent(t *testing.T) {
+func TestIsPresent(t *testing.T) {
 	errs := NewErrors()
 
 	var subject, expected bool
 
-	subject = errs.Present()
+	subject = errs.IsPresent()
 
 	expected = false
 
@@ -71,7 +71,7 @@ func TestPresent(t *testing.T) {
 
 	errs.Add("name", "can't be blank")
 
-	subject = errs.Present()
+	subject = errs.IsPresent()
 
 	expected = true
 

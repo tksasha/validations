@@ -18,10 +18,10 @@ func (errs Errors) Size() int {
 	return len(errs["errors"])
 }
 
-func (errs Errors) Empty() bool {
+func (errs Errors) IsEmpty() bool {
 	return errs.Size() == 0
 }
 
-func (errs Errors) Present() bool {
+func (errs Errors) IsPresent() bool {
 	return errs.Size() > 0
 }
