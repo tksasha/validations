@@ -5,77 +5,85 @@ import (
 )
 
 func TestAdd(t *testing.T) {
+	exp := "can't be blank"
+
 	errs := NewErrors()
 
 	errs.Add("name", "can't be blank")
 
-	subject := errs.Get("name")[0]
+	res := errs.Get("name")[0]
 
-	expected := "can't be blank"
-
-	if subject != expected {
-		t.Errorf(M, subject, expected)
+	if exp != res {
+		t.Errorf(M, exp, res)
 	}
 }
 
 func TestGet(t *testing.T) {
+	exp := "can't be blank"
+
 	errs := NewErrors()
 
 	errs.Add("name", "can't be blank")
 
-	subject := errs.Get("name")[0]
+	res := errs.Get("name")[0]
 
-	expected := "can't be blank"
-
-	if subject != expected {
-		t.Errorf(M, subject, expected)
+	if exp != res {
+		t.Errorf(M, exp, res)
 	}
 }
 
 func TestIsEmpty(t *testing.T) {
-	errs := NewErrors()
+	t.Run("when it is empty", func(t *testing.T) {
+		exp := true
 
-	var subject, expected bool
+		errs := NewErrors()
 
-	subject = errs.IsEmpty()
+		res := errs.IsEmpty()
 
-	expected = true
+		if exp != res {
+			t.Errorf(M, exp, res)
+		}
+	})
 
-	if subject != expected {
-		t.Errorf(M, subject, expected)
-	}
+	t.Run("when it is not empty", func(t *testing.T) {
+		exp := false
 
-	errs.Add("name", "can't be blank")
+		errs := NewErrors()
 
-	subject = errs.IsEmpty()
+		errs.Add("name", "can't be blank")
 
-	expected = false
+		res := errs.IsEmpty()
 
-	if subject != expected {
-		t.Errorf(M, subject, expected)
-	}
+		if exp != res {
+			t.Errorf(M, exp, res)
+		}
+	})
 }
 
-func TestIsPresent(t *testing.T) {
-	errs := NewErrors()
+func TestIsNotEmpty(t *testing.T) {
+	t.Run("when it is empty", func(t *testing.T) {
+		exp := false
 
-	var subject, expected bool
+		errs := NewErrors()
 
-	subject = errs.IsPresent()
+		res := errs.IsNotEmpty()
 
-	expected = false
+		if exp != res {
+			t.Errorf(M, exp, res)
+		}
+	})
 
-	if subject != expected {
-		t.Errorf(M, subject, expected)
-	}
+	t.Run("when it is not empty", func(t *testing.T) {
+		exp := true
 
-	errs.Add("name", "can't be blank")
+		errs := NewErrors()
 
-	subject = errs.IsPresent()
+		errs.Add("name", "can't be blank")
 
-	expected = true
+		res := errs.IsNotEmpty()
 
-	if subject != expected {
-		t.Errorf(M, subject, expected)
-	}
+		if exp != res {
+			t.Errorf(M, exp, res)
+		}
+	})
 }

@@ -22,6 +22,6 @@ func (errs Errors) IsEmpty() bool {
 	return errs.Size() == 0
 }
 
-func (errs Errors) IsPresent() bool {
+func (errs Errors) IsNotEmpty() bool {
 	return errs.Size() > 0
 }
